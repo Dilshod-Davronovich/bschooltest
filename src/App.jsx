@@ -1,6 +1,7 @@
 import { getDatabase, ref, set } from "firebase/database"
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "./firebase";
+import Welcome from './components/Welcome'
 import './App.css'
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
   writeUserData(2, test)
   return (
     <>
-      
+      <Welcome />
     </>
   )
 }
