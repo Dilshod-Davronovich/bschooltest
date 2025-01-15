@@ -1,4 +1,4 @@
-header {
+.header {
     background-color: #4CAF50;
     color: white;
     text-align: center;
@@ -7,13 +7,13 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
+.header h1 {
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
 }
 
-main {
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ main {
     background-color: #f4f4f4;
 }
 
-input[type="search"] {
+.input[type="search"] {
     width: 300px;
     padding: 10px 15px;
     border: 2px solid #4CAF50;
@@ -32,12 +32,12 @@ input[type="search"] {
     transition: all 0.3s ease;
 }
 
-input[type="search"]:focus {
+.input[type="search"]:focus {
     border-color: #45a049;
     box-shadow: 0 0 10px rgba(72, 239, 128, 0.6);
 }
 
-button {
+.button {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -49,12 +49,12 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
+.button:hover {
     background-color: #45a049;
     box-shadow: 0 6px 8px rgba(72, 239, 128, 0.4);
 }
 
-button:focus {
+.button:focus {
     outline: none;
     box-shadow: 0 0 10px rgba(72, 239, 128, 0.6);
 }

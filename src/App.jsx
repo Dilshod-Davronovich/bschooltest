@@ -6,6 +6,7 @@ import './App.css';
 import AminPanel from './components/AminPanel';
 import Welcome from './components/Welcome';
 import WordDragAndDrop from './components/WordToObj';
+import WorkWindow from './components/WorkWindow';
 
 function App() {
    const [testId, setTestId] = useState('');
@@ -42,7 +43,13 @@ function App() {
    //  writeUserData(2, test);
    return (
       <>
+<<<<<<< HEAD
          <AminPanel />
+=======
+         <Welcome changeTestCode={changeTestCode} />
+         <WordDragAndDrop />
+         <WorkWindow />
+>>>>>>> 68bb4426a87e2ae7ba4e077cd4c69460c399db9f
       </>
    );
 }

@@ -1,14 +1,14 @@
-import './Welcome.css'
+import styles from './Welcome.module.css'
 
-const Welcome = () => {
+function Welcome() {
   return (
     <>
-        <header>
+        <header className={styles.header}>
             <h1>Welcome to BobobekovSchool!</h1>
         </header>
-        <main>
-            <input type="search" />
-            <button>Search</button>
+        <main className={styles.main}>
+            <input type="search" className={styles.input} />
+            <button className={styles.button}>Search</button>
         </main>
     </>
   )
