@@ -7,9 +7,13 @@ import './App.css';
 import WordDragAndDrop from './components/WordToObj';
 
 function App() {
-   const [testCode, setTestCode] = useState('');
+   const [testId, setTestId] = useState('');
    const app = initializeApp(firebaseConfig);
    const database = getDatabase(app);
+
+   function changeTestCode(id) {
+      setTestId(id);
+   }
 
    function writeUserData(id, testlar) {
       // const db = getDatabase();
@@ -37,7 +41,7 @@ function App() {
    //  writeUserData(2, test);
    return (
       <>
-         <Welcome />
+         <Welcome changeTestCode={changeTestCode} />
          <WordDragAndDrop />
       </>
    );
