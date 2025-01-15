@@ -5,6 +5,7 @@ import firebaseConfig from './firebase';
 import Welcome from './components/Welcome';
 import './App.css';
 import WordDragAndDrop from './components/WordToObj';
+import WorkWindow from './components/WorkWindow';
 
 function App() {
    const [testId, setTestId] = useState('');
@@ -43,6 +44,7 @@ function App() {
       <>
          <Welcome changeTestCode={changeTestCode} />
          <WordDragAndDrop />
+         <WorkWindow />
       </>
    );
 }
