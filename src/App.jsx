@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { getDatabase, ref, set } from 'firebase/database';
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from './firebase';
-import Welcome from './components/Welcome';
 import './App.css';
+import AminPanel from './components/AminPanel';
+import Welcome from './components/Welcome';
 import WordDragAndDrop from './components/WordToObj';
 
 function App() {
@@ -41,8 +42,7 @@ function App() {
    //  writeUserData(2, test);
    return (
       <>
-         <Welcome changeTestCode={changeTestCode} />
-         <WordDragAndDrop />
+         <AminPanel />
       </>
    );
 }
