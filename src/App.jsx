@@ -43,13 +43,10 @@ function App() {
    //  writeUserData(2, test);
    return (
       <>
-<<<<<<< HEAD
          <AminPanel />
-=======
          <Welcome changeTestCode={changeTestCode} />
          <WordDragAndDrop />
          <WorkWindow />
->>>>>>> 68bb4426a87e2ae7ba4e077cd4c69460c399db9f
       </>
    );
 }
