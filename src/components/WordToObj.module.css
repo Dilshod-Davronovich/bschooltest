@@ -1,0 +1,20 @@
+.dragWindow {
+   width: 400px;
+   border: 2px dashed lightgray;
+   border-radius: 5px;
+   padding: 20px;
+   height: 100px;
+   text-align: center;
+   align-items: center;
+   margin: 20px auto;
+   background-color: aliceblue;
+   color: gray;
+}
+
+.errorWindow {
+   text-align: center;
+   margin: 10px 0;
+   font-size: 20px;
+   color: red;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

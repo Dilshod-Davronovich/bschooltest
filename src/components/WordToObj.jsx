@@ -1,5 +1,6 @@
 import * as mammoth from 'mammoth';
 import { useState } from 'react';
+import styles from './WordToObj.module.css';
 
 const WordDragAndDrop = () => {
    const [textContent, setTextContent] = useState('');
@@ -16,7 +17,7 @@ const WordDragAndDrop = () => {
          file.type !==
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
       ) {
-         setError('Please drop a valid .docx file');
+         setError('Iltimos .docx file tashlang');
          return;
       }
 
@@ -44,28 +45,14 @@ const WordDragAndDrop = () => {
 
    return (
       <div>
-         <h1>Drag and Drop Word File</h1>
          <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-            style={{
-               border: '2px dashed #ccc',
-               borderRadius: '10px',
-               padding: '20px',
-               textAlign: 'center',
-               margin: '20px 0',
-               backgroundColor: '#f9f9f9',
-            }}
+            className={styles.dragWindow}
          >
-            Drag and drop your .docx file here
+            Word faylini bu yerga tashlang.
          </div>
-         {error && <p style={{ color: 'red' }}>{error}</p>}
-         <textarea
-            value={textContent}
-            readOnly
-            rows="15"
-            style={{ width: '100%', border: '1px solid #ddd', padding: '10px' }}
-         />
+         {error && <p className={styles.errorWindow}>{error}</p>}
       </div>
    );
 };
