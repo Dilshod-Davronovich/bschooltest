@@ -30,9 +30,6 @@ function App() {
    return (
       <>
          <AminPanel />
-         <Welcome changeTestCode={changeTestCode} />
-         <WordDragAndDrop />
-         <WorkWindow />
       </>
    );
 }

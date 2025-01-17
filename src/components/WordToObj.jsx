@@ -1,14 +1,21 @@
 import * as mammoth from 'mammoth';
 import { useState, useEffect } from 'react';
 import styles from './WordToObj.module.css';
+import wordgif from '../assets/word.gif';
 
-const WordDragAndDrop = ({ testObjectList, setTestObjectList }) => {
+const WordDragAndDrop = ({
+   testObjectList,
+   setTestObjectList,
+   complated,
+   setComplated,
+}) => {
    const [textContent, setTextContent] = useState('');
    const [error, setError] = useState('');
 
    useEffect(() => {
       if (textContent !== '') {
          textToObjectJson(textContent);
+         setComplated(true);
       }
    }, [textContent]);
 
@@ -76,9 +83,15 @@ const WordDragAndDrop = ({ testObjectList, setTestObjectList }) => {
          <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-            className={styles.dragWindow}
+            className={
+               complated ? styles.dragWindowComplated : styles.dragWindow
+            }
          >
-            Word faylini bu yerga tashlang.
+            {complated ? (
+               <img className={styles.imgWindow} src={wordgif} />
+            ) : (
+               'Word faylini bu yerga tashlang.'
+            )}
          </div>
          {error && <p className={styles.errorWindow}>{error}</p>}
       </div>
