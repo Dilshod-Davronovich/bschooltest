@@ -1,10 +1,37 @@
 import * as mammoth from 'mammoth';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './WordToObj.module.css';
 
-const WordDragAndDrop = () => {
+const WordDragAndDrop = ({ testObjectList, setTestObjectList }) => {
    const [textContent, setTextContent] = useState('');
    const [error, setError] = useState('');
+
+   useEffect(() => {
+      if (textContent !== '') {
+         textToObjectJson(textContent);
+      }
+   }, [textContent]);
+
+   function textToObjectJson(text) {
+      let questions = text.split('*');
+      const updatedTestObjects = [...testObjectList];
+      questions.forEach((question) => {
+         let listQuestion = question.split('>');
+         let yangilanganMatn = listQuestion.map((element) =>
+            element.replace(/\n+/g, '')
+         );
+         let testObject = {
+            savol: yangilanganMatn[0],
+            a: yangilanganMatn[1],
+            b: yangilanganMatn[2],
+            c: yangilanganMatn[3],
+            javob: yangilanganMatn[4],
+         };
+         updatedTestObjects.push(testObject);
+      });
+      setTestObjectList(updatedTestObjects);
+      setTextContent('');
+   }
 
    const handleDrop = (event) => {
       event.preventDefault(); // Brauzerning default xatti-harakatini to'xtatish (ochilishi).
@@ -28,7 +55,8 @@ const WordDragAndDrop = () => {
          mammoth
             .extractRawText({ arrayBuffer })
             .then((result) => {
-               setTextContent(result.value); // Word fayldan olingan matn.
+               const extractedText = result.value;
+               setTextContent(extractedText); // Word fayldan olingan matn.
             })
             .catch((err) => {
                setError('Error processing the file');
