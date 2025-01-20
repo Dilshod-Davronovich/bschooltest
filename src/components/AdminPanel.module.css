@@ -1,3 +1,11 @@
+@font-face {
+   font-family: 'mega-trans';
+   src: url(../fonts/Megatrans-Stamp.otf);
+}
+@font-face {
+   font-family: 'becham-stamp';
+   src: url(../fonts/Becham-Stamp.otf);
+}
 .adminWindow {
    margin: 10px;
    overflow: hidden;
@@ -11,8 +19,14 @@
    background-color: lightcyan;
    padding: 20px;
    position: relative;
+   box-shadow: 0px 0px 10px 5px lightskyblue;
 }
-
+.adminWindow h1 {
+   font-family: 'becham-stamp';
+   font-size: 17px;
+   letter-spacing: 2px;
+   color: #0385e3;
+}
 .adminWindow input {
    border: 2px solid lightblue;
    display: inline-block;
@@ -42,7 +56,7 @@
 }
 
 .adminWindow label {
-   color: #0c141d;
+   color: #434cd0;
    display: inline-block;
    font-weight: 900;
    width: 80px;
@@ -69,4 +83,50 @@
    margin-right: 3px;
    font-size: 15px;
    content: '\1F4BE';
+}
+
+.headerWindow {
+   width: 100%;
+   box-shadow: 0px 0px 10px 5px lightskyblue;
+   background-color: lightcyan;
+   border-radius: 10px;
+   margin: 5px;
+   overflow: hidden;
+   position: relative;
+   z-index: 3;
+}
+.headerWindow h1 {
+   font-family: 'mega-trans';
+   font-size: 50px;
+   text-align: center;
+   font-weight: 800;
+   padding: 20px;
+}
+
+.headerWindow h1::before {
+   display: inline-block;
+   content: '';
+   width: 350px;
+   height: 500px;
+   background-image: url('../assets/zero.png');
+   background-size: 100% 100%;
+   position: absolute;
+   z-index: 1;
+   left: 30px;
+   top: 0;
+   animation-name: tepa-past;
+   animation-duration: 30s;
+   animation-iteration-count: infinite;
+}
+
+@keyframes tepa-past {
+   0% {
+      top: -550px;
+   }
+   75% {
+      top: 550px;
+   }
+   100% {
+      top: 550px;
+   }
 }
