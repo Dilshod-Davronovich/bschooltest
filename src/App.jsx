@@ -5,6 +5,8 @@ import AminPanel from './components/AminPanel';
 import Welcome from './components/Welcome';
 import WordDragAndDrop from './components/WordToObj';
 import WorkWindow from './components/WorkWindow';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 function App() {
    const [testId, setTestId] = useState('');
@@ -29,10 +31,7 @@ function App() {
    //  writeUserData(2, test);
    return (
       <>
-         <AminPanel />
-         <Welcome changeTestCode={changeTestCode} />
-         <WordDragAndDrop />
-         <WorkWindow />
+         <SignUp />
       </>
    );
 }
