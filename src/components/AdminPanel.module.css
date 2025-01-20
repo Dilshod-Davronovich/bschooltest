@@ -1,25 +1,18 @@
 .adminWindow {
+   margin: 10px;
    overflow: hidden;
-   width: 100%;
-   height: 100%;
+   width: 35%;
+   border: 3px solid white;
+   border-radius: 10px;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
    background-color: lightcyan;
    padding: 20px;
+   position: relative;
 }
 
-.adminWindow h1 {
-   position: absolute;
-   color: #0c141d;
-   font-family: Arial, Helvetica, sans-serif;
-   width: 100%;
-   left: 0;
-   top: 0;
-   text-align: center;
-   margin-top: 20px;
-}
 .adminWindow input {
    border: 2px solid lightblue;
    display: inline-block;
@@ -59,4 +52,21 @@
    border: 2px solid lightgreen;
    outline: none;
    background-color: lightskyblue;
+}
+
+.showMassage {
+   position: absolute;
+   bottom: 25px;
+   right: 20px;
+   font-size: 15px;
+   font-family: Arial, Helvetica, sans-serif;
+   color: #4285f4;
+   background-color: lightblue;
+   padding: 5px;
+   border-radius: 5px;
+}
+.showMassage::before {
+   margin-right: 3px;
+   font-size: 15px;
+   content: '\1F4BE';
 }
