@@ -1,6 +1,6 @@
 import * as mammoth from 'mammoth';
 import { useState, useEffect } from 'react';
-import styles from './WordToObj.module.css';
+import styles from './AdminPanel.module.css';
 import wordgif from '../assets/word.gif';
 
 const WordDragAndDrop = ({

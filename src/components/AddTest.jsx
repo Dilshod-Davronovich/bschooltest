@@ -14,6 +14,8 @@ const AddTest = () => {
    const [complated, setComplated] = useState(false);
    const [showMassage, setSHowMassage] = useState(false);
 
+   const [openWindow, setOpenWindow] = useState(false);
+
    const [checkInputTitle, setcheckInputTitle] = useState(false);
    const [checkInputId, setcheckInputId] = useState(false);
    const [checkWordFile, setcheckWordFile] = useState(false);
@@ -55,9 +57,25 @@ const AddTest = () => {
       }
    }, [sarlavha, idRaqami, testObjectList]);
 
+   console.log(openWindow);
    return (
-      <div className={styles.adminWindow}>
-         <button className={styles.openBtn}></button>
+      <div
+         className={
+            openWindow
+               ? `${styles.adminWindow} ${styles.closeWindow}`
+               : `${styles.adminWindow} ${styles.openWindow}`
+         }
+      >
+         <button
+            className={
+               openWindow
+                  ? `${styles.openRotateBtn} ${styles.openBtn}`
+                  : `${styles.closeRotateBtn} ${styles.openBtn}`
+            }
+            onClick={() => {
+               openWindow ? setOpenWindow(false) : setOpenWindow(true);
+            }}
+         ></button>
          <h1>Yangi test qo'shish</h1>
          <div>
             <label>Sarlavhasi </label>

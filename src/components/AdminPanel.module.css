@@ -1,3 +1,15 @@
+:root {
+   --main-bg-color: lightcyan;
+   --main-body-color: white;
+   --dynamic-text-color: black;
+   --dynamic-inputs-color: white;
+   --dynamic-img: url('../assets/kech.png');
+}
+
+body {
+   background-color: var(--main-body-color);
+}
+
 @font-face {
    font-family: 'mega-trans';
    src: url(../fonts/Megatrans-Stamp.otf);
@@ -9,33 +21,65 @@
 .adminWindow {
    margin: 10px;
    overflow: hidden;
-   width: 35%;
-   border: 3px solid white;
+   width: 40%;
+   height: 350px;
+   border: 3px solid var(--dynamic-inputs-color);
    border-radius: 10px;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background-color: lightcyan;
+   background-color: var(--main-bg-color);
    padding: 20px;
    position: relative;
-   box-shadow: 0px 0px 10px 5px lightskyblue;
+   box-shadow: 0px 0px 5px 3px lightskyblue;
+}
+.openWindow {
+   animation-name: openAnimation;
+   animation-duration: 0.7s;
+   animation-fill-mode: forwards;
+   animation-timing-function: linear;
+   --start-height: 40px;
+   --end-height: 360px;
+}
+.closeWindow {
+   animation-name: closeAnimation;
+   animation-duration: 0.7s;
+   animation-fill-mode: forwards;
+   animation-timing-function: linear;
+   --start-height: 360px;
+   --end-height: 40px;
 }
 .adminWindow h1 {
+   padding-top: 10px;
+   text-align: center;
+   height: 40px;
+   width: 100%;
+   background-color: var(--main-bg-color);
    font-family: 'becham-stamp';
-   font-size: 17px;
+   font-size: 20px;
    letter-spacing: 2px;
-   color: #0385e3;
+   color: #4285f4;
+   position: absolute;
+   top: 0px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 2;
 }
 .adminWindow input {
+   font-size: 18px;
+   background-color: var(--dynamic-inputs-color);
    border: 2px solid lightblue;
    display: inline-block;
    width: 400px;
+   font-family: Arial, Helvetica, sans-serif;
+   letter-spacing: 0.7px;
    border-radius: 5px;
    padding: 10px;
-   color: gray;
-   margin-top: 10px;
+   color: rgb(36, 34, 34);
+   margin-top: 40px;
    margin-left: 5px;
+   z-index: 1;
 }
 
 .adminWindow button {
@@ -47,6 +91,7 @@
    border: none;
    border-radius: 15px;
    box-shadow: 0px 0px 3px 1px gray;
+   z-index: 1;
 }
 .adminWindow button:hover {
    box-shadow: 0px 0px 3px 1px lightgreen;
@@ -56,7 +101,7 @@
 }
 
 .adminWindow label {
-   color: #434cd0;
+   color: #4285f4;
    display: inline-block;
    font-weight: 900;
    width: 80px;
@@ -74,13 +119,27 @@
    background-size: 100% 100%;
    border-radius: 0;
    box-shadow: none;
+   transition: 500ms ease;
+   z-index: 5;
 }
 
 .adminWindow .openBtn:hover {
    box-shadow: none;
 }
 .adminWindow .openBtn:active {
-   background-color: none;
+   background-color: transparent !important;
+   transform: scale(1.2);
+}
+
+.openRotateBtn {
+   animation-name: openRotateBtn;
+   animation-duration: 0.7s;
+   animation-fill-mode: forwards;
+}
+.closeRotateBtn {
+   animation-name: closeRotateBtn;
+   animation-duration: 0.7s;
+   animation-fill-mode: forwards;
 }
 
 .adminWindow input:focus {
@@ -108,8 +167,8 @@
 
 .headerWindow {
    width: 100%;
-   box-shadow: 0px 0px 10px 5px lightskyblue;
-   background-color: lightcyan;
+   box-shadow: 0px 0px 5px 2px lightskyblue;
+   background-color: var(--main-bg-color);
    border-radius: 10px;
    margin: 5px;
    overflow: hidden;
@@ -117,6 +176,7 @@
    z-index: 3;
 }
 .headerWindow h1 {
+   color: var(--dynamic-text-color);
    font-family: 'mega-trans';
    font-size: 50px;
    text-align: center;
@@ -140,6 +200,53 @@
    animation-iteration-count: infinite;
 }
 
+.dayNightButton {
+   width: 50px;
+   height: 50px;
+   background: var(--dynamic-img);
+   background-size: 100% 100%;
+   position: absolute;
+   right: 10px;
+   top: 10px;
+}
+/* 
+Word to object css */
+
+.dragWindow {
+   display: flex;
+   width: 400px;
+   border: 2px dashed lightgray;
+   border-radius: 5px;
+   height: 100px;
+   align-items: center;
+   justify-content: center;
+   margin: 20px auto;
+   background-color: var(--dynamic-inputs-color);
+   color: var(--dynamic-text-color);
+}
+.imgWindow {
+   width: 100px;
+}
+.dragWindowComplated {
+   display: flex;
+   width: 400px;
+   border: 2px solid #3161ac;
+   border-radius: 5px;
+   height: 100px;
+   align-items: center;
+   justify-content: center;
+   margin: 20px auto;
+   background-color: aliceblue;
+   color: gray;
+}
+.errorWindow {
+   text-align: center;
+   margin: 10px 0;
+   font-size: 20px;
+   color: red;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 @keyframes tepa-past {
    0% {
       top: -550px;
@@ -149,5 +256,39 @@
    }
    100% {
       top: 550px;
+   }
+}
+
+@keyframes openAnimation {
+   from {
+      height: var(--start-height, 0);
+   }
+   to {
+      height: var(--end-height, 100%);
+   }
+}
+@keyframes closeAnimation {
+   from {
+      height: var(--start-height, 0);
+   }
+   to {
+      height: var(--end-height, 100%);
+   }
+}
+
+@keyframes openRotateBtn {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(180deg);
+   }
+}
+@keyframes closeRotateBtn {
+   from {
+      transform: rotate(180deg);
+   }
+   to {
+      transform: rotate(0deg);
    }
 }
