@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 
 import './App.css';
-// import AminPanel from './components/AminPanel';
+import AminPanel from './components/AminPanel';
 // import Welcome from './components/Welcome';
 // import WordDragAndDrop from './components/WordToObj';
 // import WorkWindow from './components/WorkWindow';
@@ -30,8 +30,10 @@ function App() {
    //  ];
    //  const test = JSON.stringify(birinchiTest);
    //  writeUserData(2, test);
+
    return (
       <>
+         <AminPanel />
          <Rating />
          <SignUp />
       </>
