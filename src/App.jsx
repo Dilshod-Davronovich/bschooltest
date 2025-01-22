@@ -29,9 +29,7 @@ function App() {
    //  ];
    //  const test = JSON.stringify(birinchiTest);
    //  writeUserData(2, test);
-   return (
-
-   );
+   return <AminPanel />;
 }
 
 export default App;

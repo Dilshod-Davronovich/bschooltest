@@ -57,6 +57,7 @@ const AddTest = () => {
 
    return (
       <div className={styles.adminWindow}>
+         <button className={styles.openBtn}></button>
          <h1>Yangi test qo'shish</h1>
          <div>
             <label>Sarlavhasi </label>
