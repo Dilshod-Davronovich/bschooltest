@@ -1,12 +1,12 @@
 // import { useState } from 'react';
 
 import './App.css';
-import AminPanel from './components/AminPanel';
+// import AminPanel from './components/AminPanel';
 // import Welcome from './components/Welcome';
 // import WordDragAndDrop from './components/WordToObj';
 // import WorkWindow from './components/WorkWindow';
 // import Login from './components/Login';
-import SignUp from './components/SignUp';
+// import SignUp from './components/SignUp';
 import Rating from './components/Rating';
 
 function App() {
@@ -33,9 +33,7 @@ function App() {
 
    return (
       <>
-         <AminPanel />
          <Rating />
-         <SignUp />
       </>
    );
 }

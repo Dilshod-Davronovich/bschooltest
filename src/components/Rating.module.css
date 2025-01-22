@@ -1,7 +1,11 @@
+:root{
+  --i:20;
+  --clr:blue;
+}
 .container {
     width: 100%;
-    height: 80%;
-    max-width: 40%;
+    height: 350px;
+    max-width: 60%;
     margin: 0 auto;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -19,7 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 10px;
   background-color: #fff;
   font-weight: 700;
@@ -50,4 +54,45 @@
 
 .fontStyle {
   font-family: 'Megatrans', sans-serif;
+}
+
+.progress {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: conic-gradient(
+     var(--clr) calc(var(--i) * 1%),
+     #444 calc(var(--i) * 1%)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5em;
+  color: white;
+  z-index: 2;
+  font-weight: 500;
+}
+
+.progress h3 span {
+  font-size: 0.65em;
+  font-weight: 400;
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #222;
+  border-radius: 50%;
 }
