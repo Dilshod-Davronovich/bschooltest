@@ -3,6 +3,8 @@ import AddTest from './AddTest';
 import styles from './AdminPanel.module.css';
 import kunImg from '../assets/kun.png';
 import kechImg from '../assets/kech.png';
+import SignUp from './SignUp';
+import Rating from './Rating';
 
 const AminPanel = () => {
    const [changeBgrounds, setChangeBgrounds] = useState(true);
@@ -65,6 +67,8 @@ const AminPanel = () => {
             ></button>
          </header>
          <AddTest />
+         <Rating />
+         <SignUp />
       </div>
    );
 };
