@@ -10,7 +10,7 @@
     margin: 20px auto;
 }
 
-.form input, .form buttons {
+.form input, .form button {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -20,7 +20,7 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form buttons {
+.form button {
     cursor: pointer;
 }
 
