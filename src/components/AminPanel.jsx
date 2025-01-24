@@ -58,7 +58,7 @@ const AminPanel = () => {
    return (
       <div>
          <header className={styles.headerWindow}>
-            <h1>ADMINSTRATOR BO'LIMI</h1>
+            <h1>ADMINSTRATOR BO`LIMI</h1>
             <button
                onClick={changeBg}
                className={styles.dayNightButton}

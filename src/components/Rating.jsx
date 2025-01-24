@@ -27,7 +27,7 @@ const Rating = () => {
                 {user.group}
               </li>
               <li className={styles.fontStyle}>
-                <a href={user.site} target="_blank" style={{ color: "#9999ff" }}>Sayt</a>
+                <a href={user.site} target="_blank" style={{ color: "#40826d" }}>Sayt</a>
               </li>
               <li className={styles.fontStyle}>
                 <a href={user.telegram} target="_blank" style={{ color: "#0099" }}>Telegram</a>
