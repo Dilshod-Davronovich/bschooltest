@@ -1,3 +1,4 @@
+import { getDatabase, ref as refdb, set, get, child } from 'firebase/database';
 import {
    getStorage,
    ref,
@@ -9,24 +10,74 @@ import firebaseConfig from '../firebase';
 
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
+const database = getDatabase(app);
+const dbref = refdb(database);
 
-export function saveImageToFirebase(rasm, phoneNumber) {
-   let imageRef = ref(storage, `Pupils/${phoneNumber}`);
-   console.log(rasm);
-   uploadBytesResumable(imageRef, rasm) // bu metod yordamida fayl storagega yuklanadi.Unga manzil va fayl kerak.
-      .then((snapshot) => {
-         //then muvaffaqiyatli yuklanganda ishga tushadi.O'zi bilan snapshot obyektini olib keladi
-
-         console.log('Yuklandi', snapshot.totalBytes, 'bytes.');
-         console.log('File metadata:', snapshot.metadata);
-         // Let's get a download URL for the file.
-         getDownloadURL(snapshot.ref).then((url) => {
-            console.log('Rasm ushbu manzilga yuklandi: ', url);
-            return url;
-         });
-      })
-      .catch((error) => {
-         console.error('Upload failed', error);
-         // ...
-      });
+export async function saveImageToFirebase(rasm, phoneNumber) {
+   try {
+      let imageRef = ref(storage, `Pupils/${phoneNumber}`);
+      const snapshot = await uploadBytesResumable(imageRef, rasm);
+      const url = await getDownloadURL(snapshot.ref);
+      return url;
+   } catch (error) {
+      console.error('Upload failed', error);
+      throw error;
+   }
 }
+
+export async function saveUserToUserListFirebase(
+   givenName,
+   familyName,
+   phoneNumber,
+   passwordNum,
+   telegramName,
+   groupName,
+   siteName,
+   url
+) {
+   let Users = [];
+   get(child(dbref, 'Users/list')).then((snapshot) => {
+      console.log(snapshot);
+      if (snapshot.exists()) {
+         let users = snapshot.val();
+         Users = JSON.parse(users);
+         Users.push({
+            name: givenName,
+            surname: familyName,
+            phone: phoneNumber,
+            password: passwordNum,
+            telegram: telegramName,
+            group: groupName,
+            site: siteName,
+            image: url,
+            ball: 0,
+         });
+         const result = JSON.stringify(Users);
+         set(refdb(database, 'Users/'), { list: result });
+      } else {
+         Users.push({
+            name: givenName,
+            surname: familyName,
+            phone: phoneNumber,
+            password: passwordNum,
+            telegram: telegramName,
+            group: groupName,
+            site: siteName,
+            image: url,
+            ball: 0,
+         });
+         const result = JSON.stringify(Users);
+         set(refdb(database, 'Users/'), { list: result });
+      }
+   });
+}
+// saveUserToUserListFirebase(
+//    'Botir',
+//    'Tohirov',
+//    '9948444',
+//    '888',
+//    'telegram',
+//    'burgut',
+//    'site',
+//    'img'
+// );

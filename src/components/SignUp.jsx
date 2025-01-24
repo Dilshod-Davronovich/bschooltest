@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import styles from './AdminPanel.module.css';
-import { saveImageToFirebase } from './SaveToFirebase';
+import {
+   saveImageToFirebase,
+   saveUserToUserListFirebase,
+} from './SaveToFirebase';
 
 const SignUp = () => {
    const [phoneNumber, setPhoneNumber] = useState('+998');
@@ -13,6 +16,9 @@ const SignUp = () => {
    const [image, setImage] = useState('');
    const [img, setImg] = useState(null);
    const [error, setError] = useState('');
+   const [url, setUrl] = useState('');
+
+   console.log(url);
 
    const [openWindow, setOpenWindow] = useState(true);
    const [checkFirst, setCheckFirst] = useState(false);
@@ -53,6 +59,13 @@ const SignUp = () => {
       if (file) {
          setImage(file.name);
          setImg(file);
+         saveImageToFirebase(img, phoneNumber)
+            .then((url) => {
+               setUrl(url);
+            })
+            .catch((error) => {
+               console.error('Xatolik yuz berdi:', error);
+            });
       }
    }
 
@@ -68,6 +81,16 @@ const SignUp = () => {
          setError(true);
          return;
       }
+      saveUserToUserListFirebase(
+         givenName,
+         familyName,
+         phoneNumber,
+         passwordNum,
+         telegramName,
+         groupName,
+         siteName,
+         url
+      );
       setError(false);
       setPasswordNum('');
       setPhoneNumber('+998');
@@ -79,10 +102,6 @@ const SignUp = () => {
 
    function handleButtonClick() {
       document.getElementById('fileInput').click();
-   }
-
-   function saveImage() {
-      saveImageToFirebase(img, phoneNumber);
    }
 
    return (
@@ -188,7 +207,7 @@ const SignUp = () => {
                onChange={handleImageChange}
                style={{ display: 'none' }}
             />
-            <button onClick={saveImage}>Ro‘yxatga qo‘shish.</button>
+            <button onClick={handleCheck}>Ro‘yxatga qo‘shish.</button>
          </form>
       </div>
    );
