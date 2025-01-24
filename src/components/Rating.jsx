@@ -10,32 +10,26 @@ const Rating = () => {
             {sortedUsers.map((user, index) => (
                <li key={index}>
                   <ul>
-                     <li className={styles.imageWrapper}>
+                     <li>
                         <img
                            src={user.img}
                            alt={`${user.name} rasmi`}
                            style={{ width: '120px', height: '120px' }}
                         />
                      </li>
-                     <li
-                        className={styles.fontStyle}
-                        style={{ color: '#ffa500' }}
-                     >
+                     <li className={styles.fontStyle} style={{ color: '#ffa500' }}>
                         {user.name}
                      </li>
                   </ul>
                   <ul>
-                     <li
-                        className={styles.fontStyle}
-                        style={{ color: '#0099ff' }}
-                     >
+                     <li className={styles.fontStyle} style={{ color: '#0099ff' }}>
                         {user.group}
                      </li>
                      <li className={styles.fontStyle}>
                         <a
                            href={user.site}
                            target="_blank"
-                           style={{ color: '#9999ff' }}
+                           style={{ color: '#40826d' }}
                         >
                            Sayt
                         </a>
@@ -49,10 +43,7 @@ const Rating = () => {
                            Telegram
                         </a>
                      </li>
-                     <li
-                        className={styles.fontStyle}
-                        style={{ color: '#FF2600' }}
-                     >
+                     <li className={styles.fontStyle} style={{ color: '#FF2600' }}>
                         {user.tell}
                      </li>
                   </ul>

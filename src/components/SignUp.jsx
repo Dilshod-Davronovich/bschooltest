@@ -138,7 +138,7 @@ const SignUp = () => {
                }
             }}
          >
-            O'quvchi qo'shish
+            O`quvchi qo`shish
          </h1>
 
          <form className={styles.form} onSubmit={handleCheck}>

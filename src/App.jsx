@@ -7,7 +7,7 @@ import AminPanel from './components/AminPanel';
 // import WorkWindow from './components/WorkWindow';
 // import Login from './components/Login';
 // import SignUp from './components/SignUp';
-import Rating from './components/Rating';
+// import Rating from './components/Rating';
 
 function App() {
    // const [testId, setTestId] = useState('');
