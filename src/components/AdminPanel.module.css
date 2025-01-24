@@ -4,6 +4,8 @@
    --dynamic-text-color: black;
    --dynamic-inputs-color: white;
    --dynamic-img: url('../assets/kech.png');
+   --i: 20;
+   --clr: blue;
 }
 
 body {
@@ -18,12 +20,22 @@ body {
    font-family: 'becham-stamp';
    src: url(../fonts/Becham-Stamp.otf);
 }
-.adminWindow {
-   margin: 10px;
-   overflow: hidden;
+.adminPanel {
+   display: flex;
+}
+.adminBlock {
    width: 40%;
    height: 350px;
+   border: 1px solid #000;
+   position: relative;
+   margin: 10px;
+}
+.adminWindow {
+   overflow: hidden;
+   width: 100%;
+   height: 40px;
    border: 3px solid var(--dynamic-inputs-color);
+   box-shadow: 0px 0px 5px 3px lightskyblue;
    border-radius: 10px;
    display: flex;
    flex-direction: column;
@@ -31,8 +43,10 @@ body {
    align-items: center;
    background-color: var(--main-bg-color);
    padding: 20px;
-   position: relative;
-   box-shadow: 0px 0px 5px 3px lightskyblue;
+   position: absolute;
+   left: 0;
+   top: 0;
+   z-index: 20;
 }
 .openWindow {
    animation-name: openAnimation;
@@ -40,17 +54,18 @@ body {
    animation-fill-mode: forwards;
    animation-timing-function: linear;
    --start-height: 40px;
-   --end-height: 360px;
+   --end-height: 350px;
 }
 .closeWindow {
    animation-name: closeAnimation;
    animation-duration: 0.7s;
    animation-fill-mode: forwards;
    animation-timing-function: linear;
-   --start-height: 360px;
+   --start-height: 350px;
    --end-height: 40px;
 }
 .adminWindow h1 {
+   cursor: pointer;
    padding-top: 10px;
    text-align: center;
    height: 40px;
@@ -64,7 +79,7 @@ body {
    top: 0px;
    left: 50%;
    transform: translateX(-50%);
-   z-index: 2;
+   z-index: 19;
 }
 .adminWindow input {
    font-size: 18px;
@@ -77,9 +92,9 @@ body {
    border-radius: 5px;
    padding: 10px;
    color: rgb(36, 34, 34);
-   margin-top: 40px;
+   margin-top: 20px;
    margin-left: 5px;
-   z-index: 1;
+   z-index: 18;
 }
 
 .adminWindow button {
@@ -91,7 +106,7 @@ body {
    border: none;
    border-radius: 15px;
    box-shadow: 0px 0px 3px 1px gray;
-   z-index: 1;
+   z-index: 18;
 }
 .adminWindow button:hover {
    box-shadow: 0px 0px 3px 1px lightgreen;
@@ -120,7 +135,7 @@ body {
    border-radius: 0;
    box-shadow: none;
    transition: 500ms ease;
-   z-index: 5;
+   z-index: 21;
 }
 
 .adminWindow .openBtn:hover {
@@ -147,7 +162,11 @@ body {
    outline: none;
    background-color: lightskyblue;
 }
-
+#SignUp {
+   top: 50px;
+   z-index: 17;
+   overflow-y: auto;
+}
 .showMassage {
    position: absolute;
    bottom: 25px;
@@ -247,6 +266,184 @@ Word to object css */
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*signUp stillari*/
+.form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: var(--main-bg-color);
+   padding: 10px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   width: 80%;
+   position: absolute;
+   top: 50px;
+}
+
+.form input,
+.form button {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 1rem;
+   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form button {
+   cursor: pointer;
+}
+
+.form input:focus {
+   border-color: #007bff;
+   box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+   outline: none;
+}
+.form input::placeholder {
+   color: var(--dynamic-text-color);
+}
+.form button {
+   width: 100%;
+   padding: 10px;
+   background-color: #007bff;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: bold;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form button:hover {
+   background-color: #0056b3;
+}
+
+.form button:active {
+   transform: scale(0.9);
+}
+
+.rrr {
+   border-color: #ff0000;
+   box-shadow: 0 0 9px rgba(255, 0, 0, 0.845);
+}
+
+/*Raiting stillari*/
+.container {
+   margin: 10px;
+   padding: 10px;
+   height: 350px;
+   width: 60%;
+   background-color: var(--main-bg-color);
+   border-radius: 10px;
+   border: 3px solid var(--dynamic-inputs-color);
+   box-shadow: 0px 0px 5px 3px lightskyblue;
+   overflow-y: auto;
+}
+
+.container ol {
+   list-style-type: decimal;
+   padding: 0;
+   margin: 0;
+}
+
+.container li {
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   padding: 5px;
+   margin-bottom: 10px;
+   background-color: var(--dynamic-inputs-color);
+   font-weight: 700;
+   font-size: 18px;
+   border-radius: 10px;
+}
+
+.container li ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+.container li ul li {
+   margin: 5px 0;
+}
+
+.container img {
+   border-radius: 50%;
+   object-fit: cover;
+   border: 2px solid #ddd;
+   position: relative;
+   z-index: 5;
+   margin: 15px;
+}
+.imageWrapper {
+   position: relative;
+}
+.container .imageWrapper::before {
+   content: '';
+   display: inline-block;
+   background: url(../assets/rasmgabg.png);
+   background-size: 100% 100%;
+   border-radius: 50%;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   left: 0;
+   top: 0;
+   z-index: 4;
+   animation-name: aylanish;
+   animation-duration: 60s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+
+.fontStyle {
+   font-family: 'mega-trans', sans-serif;
+}
+
+.progress {
+   position: relative;
+   width: 130px;
+   height: 130px;
+   border-radius: 50%;
+   background: conic-gradient(
+      var(--clr) calc(var(--i) * 1%),
+      #444 calc(var(--i) * 1%)
+   );
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.progress h3 {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 2.5em;
+   color: white;
+   z-index: 2;
+   font-weight: 500;
+}
+
+.progress h3 span {
+   font-size: 0.65em;
+   font-weight: 400;
+}
+
+.progress::after {
+   content: '';
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   right: 10px;
+   bottom: 10px;
+   background: #222;
+   border-radius: 50%;
+}
+
 @keyframes tepa-past {
    0% {
       top: -550px;
@@ -290,5 +487,14 @@ Word to object css */
    }
    to {
       transform: rotate(0deg);
+   }
+}
+
+@keyframes aylanish {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
    }
 }
