@@ -66,9 +66,14 @@ const AminPanel = () => {
                className={styles.dayNightButton}
             ></button>
          </header>
-         <AddTest />
-         <Rating />
-         <SignUp />
+         <div className={styles.adminPanel}>
+            <div className={styles.adminBlock}>
+               <AddTest />
+               <SignUp />
+            </div>
+
+            <Rating />
+         </div>
       </div>
    );
 };
