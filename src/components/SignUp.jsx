@@ -59,7 +59,7 @@ const SignUp = () => {
       if (file) {
          setImage(file.name);
          setImg(file);
-         saveImageToFirebase(img, phoneNumber)
+         saveImageToFirebase(file, phoneNumber)
             .then((url) => {
                setUrl(url);
             })
@@ -97,7 +97,6 @@ const SignUp = () => {
       setGivenName('');
       setFamilyName('');
       setImage(null);
-      alert('Muvaffaqiyatli ro‘yxatdan o‘tildi!');
    }
 
    function handleButtonClick() {

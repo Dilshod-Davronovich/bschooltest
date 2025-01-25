@@ -348,6 +348,12 @@ Word to object css */
    margin: 0;
 }
 
+.container ol > li {
+   border: 3px solid transparent; /* Asosiy chegara */
+   border-image: linear-gradient(to right, #19287d, green, blue) 2;
+   border-radius: 10px;
+}
+
 .container li {
    display: flex;
    align-items: center;
@@ -384,7 +390,7 @@ Word to object css */
 .container .imageWrapper::before {
    content: '';
    display: inline-block;
-   background: url(../assets/rasmgabg.png);
+   background: url(../assets/rasmga.png);
    background-size: 100% 100%;
    border-radius: 50%;
    width: 100%;

@@ -1,28 +1,53 @@
-import users from './Users';
+// import users from './Users';
 import styles from './AdminPanel.module.css';
-
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { initializeApp } from 'firebase/app';
+import firebaseConfig from '../firebase';
+import { useEffect, useState } from 'react';
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const dataRef = ref(database, 'Users/list');
 const Rating = () => {
-   const sortedUsers = [...users].sort((a, b) => b.ball - a.ball);
+   const [users, setUsers] = useState([]);
+
+   useEffect(() => {
+      onValue(dataRef, (snapshot) => {
+         const data = snapshot.val();
+         const AllUsers = JSON.parse(data);
+
+         const sortedUsers = [...AllUsers].sort((a, b) => b.ball - a.ball);
+         console.log(sortedUsers);
+         setUsers(sortedUsers);
+      });
+   }, []);
 
    return (
       <div className={styles.container}>
          <ol>
-            {sortedUsers.map((user, index) => (
+            {users.map((user, index) => (
                <li key={index}>
                   <ul>
                      <li>
-                        <img
-                           src={user.img}
-                           alt={`${user.name} rasmi`}
-                           style={{ width: '120px', height: '120px' }}
-                        />
+                        <div className={styles.imageWrapper}>
+                           <img
+                              src={user.image}
+                              alt={`${user.name} rasmi`}
+                              style={{ width: '120px', height: '120px' }}
+                           />
+                        </div>
                      </li>
-                     <li className={styles.fontStyle} style={{ color: '#ffa500' }}>
+                     <li
+                        className={styles.fontStyle}
+                        style={{ color: '#ffa500' }}
+                     >
                         {user.name}
                      </li>
                   </ul>
                   <ul>
-                     <li className={styles.fontStyle} style={{ color: '#0099ff' }}>
+                     <li
+                        className={styles.fontStyle}
+                        style={{ color: '#0099ff' }}
+                     >
                         {user.group}
                      </li>
                      <li className={styles.fontStyle}>
@@ -43,7 +68,10 @@ const Rating = () => {
                            Telegram
                         </a>
                      </li>
-                     <li className={styles.fontStyle} style={{ color: '#FF2600' }}>
+                     <li
+                        className={styles.fontStyle}
+                        style={{ color: '#FF2600' }}
+                     >
                         {user.tell}
                      </li>
                   </ul>

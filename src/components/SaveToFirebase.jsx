@@ -15,8 +15,12 @@ const dbref = refdb(database);
 
 export async function saveImageToFirebase(rasm, phoneNumber) {
    try {
-      let imageRef = ref(storage, `Pupils/${phoneNumber}`);
-      const snapshot = await uploadBytesResumable(imageRef, rasm);
+      let cleanedNumber = phoneNumber.replace('+', '');
+      let imageRef = ref(storage, `Pupils/${cleanedNumber}`);
+      const metadata = {
+         contentType: rasm.type || 'image/jpeg', // Faylning MIME turini ko'rsatish
+      };
+      const snapshot = await uploadBytesResumable(imageRef, rasm, metadata);
       const url = await getDownloadURL(snapshot.ref);
       return url;
    } catch (error) {
