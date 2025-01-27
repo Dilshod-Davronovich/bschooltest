@@ -5,6 +5,7 @@ import kunImg from '../assets/kun.png';
 import kechImg from '../assets/kech.png';
 import SignUp from './SignUp';
 import Rating from './Rating';
+import AllTests from './AllTests';
 
 const AminPanel = () => {
    const [changeBgrounds, setChangeBgrounds] = useState(true);
@@ -70,6 +71,7 @@ const AminPanel = () => {
             <div className={styles.adminBlock}>
                <AddTest />
                <SignUp />
+               <AllTests />
             </div>
 
             <Rating />
