@@ -8,10 +8,6 @@
 //    messagingSenderId: '256321866906',
 //    appId: '1:256321866906:web:4445c597acf54ed2bee323',
 // };
-<<<<<<< HEAD
-
-=======
->>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
 const firebaseConfig = {
    apiKey: 'AIzaSyBPGbJ0Yil3GeZe8iTpoVkiJqCulD-5OqM',
    authDomain: 'rasm-cece5.firebaseapp.com',

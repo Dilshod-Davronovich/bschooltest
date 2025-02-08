@@ -7,21 +7,15 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     overflow-y: scroll;
-<<<<<<< HEAD
     padding-top: 40px;
-=======
->>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
 }
 
 .container h1 {
     text-align: center;
     color: #333;
     font-size: 2rem;
-<<<<<<< HEAD
     margin-bottom: 10px;
-=======
     margin-bottom: 20px;
->>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
 }
 
 .container ol {
@@ -62,10 +56,7 @@
     font-size: 0.9rem;
     color: #333;
     text-align: center;
-<<<<<<< HEAD
-=======
     list-style-type: lower-alpha;
->>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
 }
 
 .container ul li:hover {
@@ -76,7 +67,6 @@
 .container ul li:active {
     background-color: #91d5ff;
 }
-<<<<<<< HEAD
 
 .header {
     display: flex;
@@ -92,6 +82,3 @@
     background-color: #fff;
     padding: 10px 20px;
 }
-
-=======
->>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882

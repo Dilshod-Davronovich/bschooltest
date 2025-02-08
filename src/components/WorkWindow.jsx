@@ -1,11 +1,9 @@
-<<<<<<< HEAD
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../firebase';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './WorkWindow.module.css';
-
 
 function WorkWindow() {
     const { id } = useParams();
@@ -16,7 +14,7 @@ function WorkWindow() {
 
     const [test, setTest] = useState(null);
     const [checked, setChecked] = useState([]);
-    const [selectedAnswers, setSelectedAnswers] = useState([]); // Har bir savol uchun tanlangan javob
+    const [selectedAnswers, setSelectedAnswers] = useState([]);
     const [score, setScore] = useState(0);
 
     useEffect(() => {
@@ -27,8 +25,8 @@ function WorkWindow() {
                 if (foundTest && data[foundTest].testlar) {
                     const parsedTest = JSON.parse(data[foundTest].testlar);
                     setTest(parsedTest);
-                    setChecked(new Array(parsedTest[1].length).fill(true)); // Har bir savol uchun true
-                    setSelectedAnswers(new Array(parsedTest[1].length).fill(null)); // Bosilmagan holatda null
+                    setChecked(new Array(parsedTest[1].length).fill(true));
+                    setSelectedAnswers(new Array(parsedTest[1].length).fill(null));
                 } else {
                     setTest("not-found");
                 }
@@ -39,7 +37,7 @@ function WorkWindow() {
     }, [id]);
 
     function check(index, answer, correctAnswer) {
-        if (!checked[index]) return; // Agar savol allaqachon tanlangan bo'lsa, boshqa variant bosolmaydi
+        if (!checked[index]) return;
 
         const formattedAnswer = answer.trim().toLowerCase().replace(/\s+/g, " ").replace(/’/g, "'").replace(/[.,!?]+$/, "").normalize("NFKD");
         const formattedCorrectAnswer = correctAnswer.trim().toLowerCase().replace(/\s+/g, " ").replace(/’/g, "'").replace(/[.,!?]+$/, "").normalize("NFKD");
@@ -47,32 +45,30 @@ function WorkWindow() {
         let isCorrect = formattedAnswer === formattedCorrectAnswer;
 
         if (isCorrect) {
-            // alert("To'g'ri javob!");
             setScore(prevScore => prevScore + 1);
-        } else {
-            // alert("Xato javob!");
         }
 
         setChecked(prevChecked => {
             const newChecked = [...prevChecked];
-            newChecked[index] = false; // Faqat ushbu savolni bloklaymiz
+            newChecked[index] = false;
             return newChecked;
         });
 
         setSelectedAnswers(prevSelected => {
             const newSelected = [...prevSelected];
-            newSelected[index] = { answer, isCorrect }; // Tanlangan javobni va uning to'g'riligini saqlaymiz
+            newSelected[index] = { answer, isCorrect };
             return newSelected;
         });
     }
+
     function allCheck() {
-        if (score == test[1].length && alert("Test tugallandi!") === undefined) {
+        if (score === test[1].length) {
+            alert("Test tugallandi!");
             navigate("/welcome");
         } else {
             alert("Testni tugatish uchun barcha savollarga javob bering!");
         }
     }
-
 
     function back() {
         navigate("/welcome");
@@ -84,31 +80,14 @@ function WorkWindow() {
 
     if (!test) {
         return <h2>Yuklanmoqda...</h2>;
-=======
-import { useState } from 'react';
-import testsData from './data';
-import styles from './WorkWindow.module.css'
-
-function WorkWindow() {
-    const [testName] = useState(testsData[0]);
-    const [questions] = useState(testsData[1]);
-
-    function check(answer, correctAnswer) {
-        if (answer === correctAnswer) {
-            alert("To'g'ri");
-        } else {
-            alert("Xato");
-        }
->>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
     }
 
     return (
         <div className={styles.container}>
-<<<<<<< HEAD
             <div className={styles.header}>
                 <button onClick={back} style={{ cursor: 'pointer' }}>Qaytish</button>
-                <p>Jami:{selectedAnswers.length + '/' + score} to`g`ri</p>
-                <p>ball:{score}</p>
+                <p>Jami: {selectedAnswers.length}/{score} to`g`ri</p>
+                <p>Ball: {score}</p>
             </div>
             <h1>{test[0]}</h1>
             <ol>
@@ -134,29 +113,10 @@ function WorkWindow() {
                         </ul>
                     </li>
                 ))}
-                <button onClick={allCheck}>Tugatish</button>
-=======
-            <h1>{testName}</h1>
-            <ol>
-                {questions.map((question, index) => (
-                    <li key={index}>
-                        <p>{question.savol}</p>
-                        <ul>
-                            <li onClick={() => check(question.a, question.javob)}>{question.a}</li>
-                            <li onClick={() => check(question.b, question.javob)}>{question.b}</li>
-                            <li onClick={() => check(question.c, question.javob)}>{question.c}</li>
-                        </ul>
-                    </li>
-                ))}
->>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
             </ol>
+            <button onClick={allCheck}>Tugatish</button>
         </div>
     );
 }
 
-<<<<<<< HEAD
-
 export default WorkWindow;
-=======
-export default WorkWindow;
->>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
