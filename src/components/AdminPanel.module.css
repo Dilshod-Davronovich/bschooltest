@@ -1,0 +1,506 @@
+:root {
+   --main-bg-color: lightcyan;
+   --main-body-color: white;
+   --dynamic-text-color: black;
+   --dynamic-inputs-color: white;
+   --dynamic-img: url('../assets/kech.png');
+   --i: 20;
+   --clr: blue;
+}
+
+body {
+   background-color: var(--main-body-color);
+}
+
+@font-face {
+   font-family: 'mega-trans';
+   src: url(../fonts/Megatrans-Stamp.otf);
+}
+@font-face {
+   font-family: 'becham-stamp';
+   src: url(../fonts/Becham-Stamp.otf);
+}
+.adminPanel {
+   display: flex;
+}
+.adminBlock {
+   width: 40%;
+   height: 350px;
+   border: 1px solid #000;
+   position: relative;
+   margin: 10px;
+}
+.adminWindow {
+   overflow: hidden;
+   width: 100%;
+   height: 40px;
+   border: 3px solid var(--dynamic-inputs-color);
+   box-shadow: 0px 0px 5px 3px lightskyblue;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--main-bg-color);
+   padding: 20px;
+   position: absolute;
+   left: 0;
+   top: 0;
+   z-index: 20;
+}
+.openWindow {
+   animation-name: openAnimation;
+   animation-duration: 0.7s;
+   animation-fill-mode: forwards;
+   animation-timing-function: linear;
+   --start-height: 40px;
+   --end-height: 350px;
+}
+.closeWindow {
+   animation-name: closeAnimation;
+   animation-duration: 0.7s;
+   animation-fill-mode: forwards;
+   animation-timing-function: linear;
+   --start-height: 350px;
+   --end-height: 40px;
+}
+.adminWindow h1 {
+   cursor: pointer;
+   padding-top: 10px;
+   text-align: center;
+   height: 40px;
+   width: 100%;
+   background-color: var(--main-bg-color);
+   font-family: 'becham-stamp';
+   font-size: 20px;
+   letter-spacing: 2px;
+   color: #4285f4;
+   position: absolute;
+   top: 0px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 19;
+}
+.adminWindow input {
+   font-size: 18px;
+   background-color: var(--dynamic-inputs-color);
+   border: 2px solid lightblue;
+   display: inline-block;
+   width: 400px;
+   font-family: Arial, Helvetica, sans-serif;
+   letter-spacing: 0.7px;
+   border-radius: 5px;
+   padding: 10px;
+   color: rgb(36, 34, 34);
+   margin-top: 20px;
+   margin-left: 5px;
+   z-index: 18;
+}
+
+.adminWindow button {
+   background-color: #4285f4;
+   color: white;
+   font-size: 15px;
+   font-family: Arial, Helvetica, sans-serif;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 15px;
+   box-shadow: 0px 0px 3px 1px gray;
+   z-index: 18;
+}
+.adminWindow button:hover {
+   box-shadow: 0px 0px 3px 1px lightgreen;
+}
+.adminWindow button:active {
+   background-color: #34a853;
+}
+
+.adminWindow label {
+   color: #4285f4;
+   display: inline-block;
+   font-weight: 900;
+   width: 80px;
+}
+
+.adminWindow .openBtn {
+   margin-top: 5px;
+   margin-left: 5px;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 30px;
+   height: 30px;
+   background: url('../assets/yopish.png');
+   background-size: 100% 100%;
+   border-radius: 0;
+   box-shadow: none;
+   transition: 500ms ease;
+   z-index: 21;
+}
+
+.adminWindow .openBtn:hover {
+   box-shadow: none;
+}
+.adminWindow .openBtn:active {
+   background-color: transparent !important;
+   transform: scale(1.2);
+}
+
+.openRotateBtn {
+   animation-name: openRotateBtn;
+   animation-duration: 0.7s;
+   animation-fill-mode: forwards;
+}
+.closeRotateBtn {
+   animation-name: closeRotateBtn;
+   animation-duration: 0.7s;
+   animation-fill-mode: forwards;
+}
+
+.adminWindow input:focus {
+   border: 2px solid lightgreen;
+   outline: none;
+   background-color: lightskyblue;
+}
+#SignUp {
+   top: 50px;
+   z-index: 17;
+   overflow-y: auto;
+}
+.showMassage {
+   position: absolute;
+   bottom: 25px;
+   right: 20px;
+   font-size: 15px;
+   font-family: Arial, Helvetica, sans-serif;
+   color: #4285f4;
+   background-color: lightblue;
+   padding: 5px;
+   border-radius: 5px;
+}
+.showMassage::before {
+   margin-right: 3px;
+   font-size: 15px;
+   content: '\1F4BE';
+}
+
+.headerWindow {
+   width: 100%;
+   box-shadow: 0px 0px 5px 2px lightskyblue;
+   background-color: var(--main-bg-color);
+   border-radius: 10px;
+   margin: 5px;
+   overflow: hidden;
+   position: relative;
+   z-index: 3;
+}
+.headerWindow h1 {
+   color: var(--dynamic-text-color);
+   font-family: 'mega-trans';
+   font-size: 50px;
+   text-align: center;
+   font-weight: 800;
+   padding: 20px;
+}
+
+.headerWindow h1::before {
+   display: inline-block;
+   content: '';
+   width: 350px;
+   height: 500px;
+   background-image: url('../assets/zero.png');
+   background-size: 100% 100%;
+   position: absolute;
+   z-index: 1;
+   left: 30px;
+   top: 0;
+   animation-name: tepa-past;
+   animation-duration: 30s;
+   animation-iteration-count: infinite;
+}
+
+.dayNightButton {
+   width: 50px;
+   height: 50px;
+   background: var(--dynamic-img);
+   background-size: 100% 100%;
+   position: absolute;
+   right: 10px;
+   top: 10px;
+}
+/* 
+Word to object css */
+
+.dragWindow {
+   display: flex;
+   width: 400px;
+   border: 2px dashed lightgray;
+   border-radius: 5px;
+   height: 100px;
+   align-items: center;
+   justify-content: center;
+   margin: 20px auto;
+   background-color: var(--dynamic-inputs-color);
+   color: var(--dynamic-text-color);
+}
+.imgWindow {
+   width: 100px;
+}
+.dragWindowComplated {
+   display: flex;
+   width: 400px;
+   border: 2px solid #3161ac;
+   border-radius: 5px;
+   height: 100px;
+   align-items: center;
+   justify-content: center;
+   margin: 20px auto;
+   background-color: aliceblue;
+   color: gray;
+}
+.errorWindow {
+   text-align: center;
+   margin: 10px 0;
+   font-size: 20px;
+   color: red;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*signUp stillari*/
+.form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: var(--main-bg-color);
+   padding: 10px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   width: 80%;
+   position: absolute;
+   top: 50px;
+}
+
+.form input,
+.form button {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 1rem;
+   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form button {
+   cursor: pointer;
+}
+
+.form input:focus {
+   border-color: #007bff;
+   box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+   outline: none;
+}
+.form input::placeholder {
+   color: var(--dynamic-text-color);
+}
+.form button {
+   width: 100%;
+   padding: 10px;
+   background-color: #007bff;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: bold;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form button:hover {
+   background-color: #0056b3;
+}
+
+.form button:active {
+   transform: scale(0.9);
+}
+
+.rrr {
+   border-color: #ff0000;
+   box-shadow: 0 0 9px rgba(255, 0, 0, 0.845);
+}
+
+/*Raiting stillari*/
+.container {
+   margin: 10px;
+   padding: 10px;
+   height: 350px;
+   width: 60%;
+   background-color: var(--main-bg-color);
+   border-radius: 10px;
+   border: 3px solid var(--dynamic-inputs-color);
+   box-shadow: 0px 0px 5px 3px lightskyblue;
+   overflow-y: auto;
+}
+
+.container ol {
+   list-style-type: decimal;
+   padding: 0;
+   margin: 0;
+}
+
+.container ol > li {
+   border: 3px solid transparent; /* Asosiy chegara */
+   border-image: linear-gradient(to right, #19287d, green, blue) 2;
+   border-radius: 10px;
+}
+
+.container li {
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   padding: 5px;
+   margin-bottom: 10px;
+   background-color: var(--dynamic-inputs-color);
+   font-weight: 700;
+   font-size: 18px;
+   border-radius: 10px;
+}
+
+.container li ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+.container li ul li {
+   margin: 5px 0;
+}
+
+.container img {
+   border-radius: 50%;
+   object-fit: cover;
+   border: 2px solid #ddd;
+   position: relative;
+   z-index: 5;
+   margin: 15px;
+}
+.imageWrapper {
+   position: relative;
+}
+.container .imageWrapper::before {
+   content: '';
+   display: inline-block;
+   background: url(../assets/rasmga.png);
+   background-size: 100% 100%;
+   border-radius: 50%;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   left: 0;
+   top: 0;
+   z-index: 4;
+   animation-name: aylanish;
+   animation-duration: 60s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+
+.fontStyle {
+   font-family: 'mega-trans', sans-serif;
+}
+
+.progress {
+   position: relative;
+   width: 130px;
+   height: 130px;
+   border-radius: 50%;
+   background: conic-gradient(
+      var(--clr) calc(var(--i) * 1%),
+      #444 calc(var(--i) * 1%)
+   );
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.progress h3 {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 2.5em;
+   color: white;
+   z-index: 2;
+   font-weight: 500;
+}
+
+.progress h3 span {
+   font-size: 0.65em;
+   font-weight: 400;
+}
+
+.progress::after {
+   content: '';
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   right: 10px;
+   bottom: 10px;
+   background: #222;
+   border-radius: 50%;
+}
+
+@keyframes tepa-past {
+   0% {
+      top: -550px;
+   }
+   75% {
+      top: 550px;
+   }
+   100% {
+      top: 550px;
+   }
+}
+
+@keyframes openAnimation {
+   from {
+      height: var(--start-height, 0);
+   }
+   to {
+      height: var(--end-height, 100%);
+   }
+}
+@keyframes closeAnimation {
+   from {
+      height: var(--start-height, 0);
+   }
+   to {
+      height: var(--end-height, 100%);
+   }
+}
+
+@keyframes openRotateBtn {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(180deg);
+   }
+}
+@keyframes closeRotateBtn {
+   from {
+      transform: rotate(180deg);
+   }
+   to {
+      transform: rotate(0deg);
+   }
+}
+
+@keyframes aylanish {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
+}
