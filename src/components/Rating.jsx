@@ -83,8 +83,13 @@ const Rating = () => {
                            user.ball < 50
                               ? 'red'
                               : user.ball < 75
+<<<<<<< HEAD
                                  ? 'orange'
                                  : '#43f94a',
+=======
+                              ? 'orange'
+                              : '#43f94a',
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
                      }}
                   >
                      <h3>

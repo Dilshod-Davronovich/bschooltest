@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../firebase';
@@ -83,10 +84,27 @@ function WorkWindow() {
 
     if (!test) {
         return <h2>Yuklanmoqda...</h2>;
+=======
+import { useState } from 'react';
+import testsData from './data';
+import styles from './WorkWindow.module.css'
+
+function WorkWindow() {
+    const [testName] = useState(testsData[0]);
+    const [questions] = useState(testsData[1]);
+
+    function check(answer, correctAnswer) {
+        if (answer === correctAnswer) {
+            alert("To'g'ri");
+        } else {
+            alert("Xato");
+        }
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
     }
 
     return (
         <div className={styles.container}>
+<<<<<<< HEAD
             <div className={styles.header}>
                 <button onClick={back} style={{ cursor: 'pointer' }}>Qaytish</button>
                 <p>Jami:{selectedAnswers.length + '/' + score} to`g`ri</p>
@@ -117,10 +135,28 @@ function WorkWindow() {
                     </li>
                 ))}
                 <button onClick={allCheck}>Tugatish</button>
+=======
+            <h1>{testName}</h1>
+            <ol>
+                {questions.map((question, index) => (
+                    <li key={index}>
+                        <p>{question.savol}</p>
+                        <ul>
+                            <li onClick={() => check(question.a, question.javob)}>{question.a}</li>
+                            <li onClick={() => check(question.b, question.javob)}>{question.b}</li>
+                            <li onClick={() => check(question.c, question.javob)}>{question.c}</li>
+                        </ul>
+                    </li>
+                ))}
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
             </ol>
         </div>
     );
 }
 
+<<<<<<< HEAD
 
 export default WorkWindow;
+=======
+export default WorkWindow;
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882

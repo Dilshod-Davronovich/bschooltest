@@ -75,6 +75,7 @@ export async function saveUserToUserListFirebase(
       }
    });
 }
+<<<<<<< HEAD
 
 
 
@@ -96,6 +97,8 @@ export async function getUsersFromFirebase() {
     }
 }
 
+=======
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
 // saveUserToUserListFirebase(
 //    'Botir',
 //    'Tohirov',

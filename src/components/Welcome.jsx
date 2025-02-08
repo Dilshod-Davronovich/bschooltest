@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styles from './Welcome.module.css';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { initializeApp } from 'firebase/app';
@@ -61,3 +62,22 @@ function Welcome() {
 }
 
 export default Welcome;
+=======
+import styles from './Welcome.module.css'
+
+function Welcome() {
+  return (
+    <>
+        <header className={styles.header}>
+            <h1>Welcome to BobobekovSchool!</h1>
+        </header>
+        <main className={styles.main}>
+            <input type="search" className={styles.input} />
+            <button className={styles.button}>Search</button>
+        </main>
+    </>
+  )
+}
+
+export default Welcome;
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882

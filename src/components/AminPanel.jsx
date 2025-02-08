@@ -1,4 +1,5 @@
 import { useState } from 'react';
+<<<<<<< HEAD
 // import AddTest from './AddTest';
 import styles from './AdminPanel.module.css';
 import kunImg from '../assets/kun.png';
@@ -8,6 +9,15 @@ import kechImg from '../assets/kech.png';
 // import AllTests from './AllTests';
 // import WorkWindow from './WorkWindow';
 // import Welcome from './Welcome';
+=======
+import AddTest from './AddTest';
+import styles from './AdminPanel.module.css';
+import kunImg from '../assets/kun.png';
+import kechImg from '../assets/kech.png';
+import SignUp from './SignUp';
+import Rating from './Rating';
+import AllTests from './AllTests';
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
 
 const AminPanel = () => {
    const [changeBgrounds, setChangeBgrounds] = useState(true);
@@ -71,12 +81,21 @@ const AminPanel = () => {
          </header>
          <div className={styles.adminPanel}>
             <div className={styles.adminBlock}>
+<<<<<<< HEAD
                {/* <AddTest />
                <SignUp />
                <AllTests /> */}
             </div>
 
             {/* <Rating /> */}
+=======
+               <AddTest />
+               <SignUp />
+               <AllTests />
+            </div>
+
+            <Rating />
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
          </div>
       </div>
    );

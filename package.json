@@ -13,8 +13,12 @@
     "firebase": "^11.1.0",
     "mammoth": "^1.9.0",
     "react": "^18.3.1",
+<<<<<<< HEAD
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.5"
+=======
+    "react-dom": "^18.3.1"
+>>>>>>> 6ee7490bdea6768f01e23a6572aa442685da4882
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
