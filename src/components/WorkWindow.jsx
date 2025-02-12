@@ -62,7 +62,7 @@ function WorkWindow() {
     }
 
     function allCheck() {
-        if (score === test[1].length) {
+        if (selectedAnswers.every(answer => answer)) {
             alert("Test tugallandi!");
             navigate("/welcome");
         } else {
